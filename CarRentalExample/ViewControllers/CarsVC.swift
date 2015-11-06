@@ -18,6 +18,10 @@ class CarsVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let myList = DataStoreManagerMem.sharedInstance.getCustomerList()
+        
+        print("customer list count \(myList!.count)")
     }
 
     override func didReceiveMemoryWarning() {

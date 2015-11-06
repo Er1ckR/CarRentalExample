@@ -10,6 +10,8 @@ import UIKit
 
 class CustomerVC: UITableViewController {
 
+    let DSM = DataStoreManagerMem.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,7 @@ class CustomerVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+                
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +32,29 @@ class CustomerVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return DSM.getCustomerList()!.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("customerCellID", forIndexPath: indexPath) as! CustomerCell
 
         // Configure the cell...
+        let customerList = DSM.getCustomerList()
+        
+        if let customerList_ = customerList {
+            let customer = customerList_[indexPath.row]
+            cell.configure(customer)
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
