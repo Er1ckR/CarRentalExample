@@ -34,23 +34,29 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customerCellID" textLabel="zOi-LY-y3d" style="IBUITableViewCellStyleDefault" id="az5-to-F2n" customClass="CustomerCell" customModule="CarRentalExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="customerCellID" textLabel="zOi-LY-y3d" imageView="7PB-N3-XLY" style="IBUITableViewCellStyleDefault" id="az5-to-F2n" customClass="CustomerCell" customModule="CarRentalExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="az5-to-F2n" id="BeU-pn-98J">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zOi-LY-y3d">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <rect key="frame" x="71" y="0.0" width="494" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Placeholder" id="7PB-N3-XLY">
+                                            <rect key="frame" x="15" y="0.0" width="41" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </imageView>
                                     </subviews>
                                     <animations/>
+                                    <color key="backgroundColor" red="0.55253494146235993" green="0.64349657007086347" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <animations/>
                             </tableViewCell>
@@ -155,6 +161,7 @@
                         <outlet property="customerNameTopConstraint" destination="kZW-IF-ji7" id="DKM-K8-rlz"/>
                         <outlet property="saveButton" destination="sBn-HH-1Ie" id="EWp-Oo-7XK"/>
                         <outlet property="thumbConstraint" destination="Umb-Pt-h1J" id="1kt-BU-VLY"/>
+                        <outlet property="thumbnailImageView" destination="hRB-OL-Yvr" id="1Iq-1J-6eb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fd5-ZL-ekg" userLabel="First Responder" sceneMemberID="firstResponder"/>

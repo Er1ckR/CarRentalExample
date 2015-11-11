@@ -10,8 +10,14 @@ import Foundation
 
 class Customer: NSObject {
     var name:String?
+    var photo:NSData?
     
     init(name:String) {
         self.name = name
+    }
+    
+    init(name:String, photo:NSData) {
+        self.name = name
+        self.photo = photo
     }
 }

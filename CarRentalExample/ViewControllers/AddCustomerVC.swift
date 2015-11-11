@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddCustomerVC: UIViewController, UITextFieldDelegate {
+class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let DSM = DataStoreManagerMem.sharedInstance
 
@@ -17,7 +17,8 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var thumbConstraint: NSLayoutConstraint!
     @IBOutlet weak var customerNameTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var customerNameTextView: UITextField!
-    
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,7 +63,9 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate {
     
     func saveHit(sender: UIBarButtonItem) {
         
-        let customer = Customer(name:self.customerNameTextView!.text!)
+        let imageData = UIImagePNGRepresentation(self.thumbnailImageView!.image!)
+        
+        let customer = Customer(name:self.customerNameTextView!.text!, photo: imageData!)
         
         DSM.addCustomer(customer)
         
@@ -80,6 +83,27 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate {
     */
     @IBAction func imageHit(sender: AnyObject) {
         
+        let albumPickerController: UIImagePickerController = UIImagePickerController();
+        
+        albumPickerController.delegate = self;
+        
+        albumPickerController.modalPresentationStyle = UIModalPresentationStyle.FullScreen;
+        albumPickerController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical;
+        
+        presentViewController(albumPickerController, animated: true, completion: nil);
+  
     }
 
+    
+    //MARK: - UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String: AnyObject]){
+                
+        let editedImage: UIImage? = info[UIImagePickerControllerOriginalImage] as! UIImage?
+        thumbnailImageView.image = editedImage
+        dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    
 }

@@ -23,6 +23,11 @@ class CustomerCell: UITableViewCell {
     
     func configure(customer:Customer) {
         self.textLabel!.text = customer.name
+        
+        if let imageData_ = customer.photo {
+            let image = UIImage(data: imageData_)
+            self.imageView!.image = image
+        }
     }
 
 }
