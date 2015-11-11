@@ -97,12 +97,52 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naA-2H-Vh8">
+                                <rect key="frame" x="200" y="136" width="200" height="200"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hRB-OL-Yvr">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <animations/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ9-ug-PZH">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <animations/>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hRB-OL-Yvr" firstAttribute="centerY" secondItem="naA-2H-Vh8" secondAttribute="centerY" id="6kx-P7-SNR"/>
+                                    <constraint firstItem="SZ9-ug-PZH" firstAttribute="centerY" secondItem="naA-2H-Vh8" secondAttribute="centerY" id="7lZ-dW-BLv"/>
+                                    <constraint firstItem="SZ9-ug-PZH" firstAttribute="height" secondItem="naA-2H-Vh8" secondAttribute="height" id="FHj-nV-rXZ"/>
+                                    <constraint firstItem="SZ9-ug-PZH" firstAttribute="centerX" secondItem="naA-2H-Vh8" secondAttribute="centerX" id="Ul1-Xu-d1X"/>
+                                    <constraint firstAttribute="height" constant="200" id="bVD-Wf-nT1"/>
+                                    <constraint firstItem="hRB-OL-Yvr" firstAttribute="width" secondItem="naA-2H-Vh8" secondAttribute="width" id="bbW-Ry-cNv"/>
+                                    <constraint firstItem="SZ9-ug-PZH" firstAttribute="width" secondItem="naA-2H-Vh8" secondAttribute="width" id="fC8-LS-fQb"/>
+                                    <constraint firstAttribute="width" constant="200" id="fv7-RC-BRp"/>
+                                    <constraint firstItem="hRB-OL-Yvr" firstAttribute="height" secondItem="naA-2H-Vh8" secondAttribute="height" id="sDh-Qy-1NL"/>
+                                    <constraint firstItem="hRB-OL-Yvr" firstAttribute="centerX" secondItem="naA-2H-Vh8" secondAttribute="centerX" id="xTN-l7-bml"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Customer Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-UC-mX9">
+                                <rect key="frame" x="188" y="382" width="224" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="nyA-nQ-OQh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bPl-wI-a16" firstAttribute="top" secondItem="wDm-zi-HhF" secondAttribute="bottom" id="NIi-bW-bad"/>
+                            <constraint firstItem="naA-2H-Vh8" firstAttribute="top" secondItem="wDm-zi-HhF" secondAttribute="bottom" constant="116" id="Umb-Pt-h1J"/>
+                            <constraint firstItem="ERR-UC-mX9" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" id="jZ4-vc-CU2"/>
+                            <constraint firstItem="ERR-UC-mX9" firstAttribute="top" secondItem="naA-2H-Vh8" secondAttribute="bottom" constant="46" id="kZW-IF-ji7"/>
                             <constraint firstItem="bPl-wI-a16" firstAttribute="width" secondItem="ncb-4a-MLo" secondAttribute="width" id="pkl-Xz-gJ5"/>
+                            <constraint firstItem="naA-2H-Vh8" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" id="t7f-RC-gFd"/>
                             <constraint firstItem="bPl-wI-a16" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" id="wdk-20-FTu"/>
                         </constraints>
                     </view>
@@ -168,4 +208,7 @@
             <point key="canvasLocation" x="-33" y="1167"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Placeholder" width="465" height="491"/>
+    </resources>
 </document>
