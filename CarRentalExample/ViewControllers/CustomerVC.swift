@@ -23,6 +23,11 @@ class CustomerVC: UITableViewController {
                 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
+    
     override func prefersStatusBarHidden() -> Bool {
         return false
     }

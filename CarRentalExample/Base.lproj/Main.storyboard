@@ -97,7 +97,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naA-2H-Vh8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naA-2H-Vh8" userLabel="Thumb View">
                                 <rect key="frame" x="200" y="136" width="200" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hRB-OL-Yvr">
@@ -107,6 +107,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ9-ug-PZH">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <animations/>
+                                        <connections>
+                                            <action selector="imageHit:" destination="rgK-UC-fJt" eventType="touchUpInside" id="RCt-kt-1Wa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -148,7 +151,10 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="Ilr-qe-3FJ" id="jnT-WG-Xn3"/>
+                        <outlet property="customerNameTextView" destination="ERR-UC-mX9" id="zxF-Dp-QGJ"/>
+                        <outlet property="customerNameTopConstraint" destination="kZW-IF-ji7" id="DKM-K8-rlz"/>
                         <outlet property="saveButton" destination="sBn-HH-1Ie" id="EWp-Oo-7XK"/>
+                        <outlet property="thumbConstraint" destination="Umb-Pt-h1J" id="1kt-BU-VLY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fd5-ZL-ekg" userLabel="First Responder" sceneMemberID="firstResponder"/>

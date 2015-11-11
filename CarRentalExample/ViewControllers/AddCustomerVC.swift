@@ -8,10 +8,15 @@
 
 import UIKit
 
-class AddCustomerVC: UIViewController {
+class AddCustomerVC: UIViewController, UITextFieldDelegate {
+
+    let DSM = DataStoreManagerMem.sharedInstance
 
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var thumbConstraint: NSLayoutConstraint!
+    @IBOutlet weak var customerNameTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var customerNameTextView: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +25,28 @@ class AddCustomerVC: UIViewController {
         
         cancelButton.action = NSSelectorFromString("cancelHit:")
         saveButton.action = NSSelectorFromString("saveHit:")
-    }
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+
+        customerNameTextView.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        self.thumbConstraint.constant = 55
+        self.customerNameTopConstraint.constant = 10
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        self.thumbConstraint.constant = 116
+        self.customerNameTopConstraint.constant = 46
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -36,6 +61,11 @@ class AddCustomerVC: UIViewController {
     }
     
     func saveHit(sender: UIBarButtonItem) {
+        
+        let customer = Customer(name:self.customerNameTextView!.text!)
+        
+        DSM.addCustomer(customer)
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -48,5 +78,8 @@ class AddCustomerVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func imageHit(sender: AnyObject) {
+        
+    }
 
 }
