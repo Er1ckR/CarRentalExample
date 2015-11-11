@@ -18,6 +18,7 @@
 		C10D36BE1BEC2F6A0082B72D /* CarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D36BD1BEC2F6A0082B72D /* CarsCell.swift */; };
 		C10D36C21BEC300D0082B72D /* DataStoreManagerMem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D36C11BEC300D0082B72D /* DataStoreManagerMem.swift */; };
 		C10D36C61BEC37110082B72D /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D36C51BEC37110082B72D /* Customer.swift */; };
+		C1792EE81BF2B9470059F61A /* AddCustomerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C10D36BD1BEC2F6A0082B72D /* CarsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarsCell.swift; path = Cells/CarsCell.swift; sourceTree = "<group>"; };
 		C10D36C11BEC300D0082B72D /* DataStoreManagerMem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStoreManagerMem.swift; path = Managers/DataStoreManagerMem.swift; sourceTree = "<group>"; };
 		C10D36C51BEC37110082B72D /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Customer.swift; path = Models/Customer.swift; sourceTree = "<group>"; };
+		C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCustomerVC.swift; path = ViewControllers/AddCustomerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				C10D36B71BEC2EA30082B72D /* CustomerVC.swift */,
 				C10D36B91BEC2ED20082B72D /* CarsVC.swift */,
+				C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			files = (
 				C10D36A71BEC28140082B72D /* CarRentalExample.xcdatamodeld in Sources */,
 				C10D36BA1BEC2ED20082B72D /* CarsVC.swift in Sources */,
+				C1792EE81BF2B9470059F61A /* AddCustomerVC.swift in Sources */,
 				C10D36BE1BEC2F6A0082B72D /* CarsCell.swift in Sources */,
 				C10D36C61BEC37110082B72D /* Customer.swift in Sources */,
 				C10D369F1BEC28140082B72D /* AppDelegate.swift in Sources */,
@@ -340,6 +344,7 @@
 				C10D36B21BEC28140082B72D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

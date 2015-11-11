@@ -22,7 +22,11 @@ class CustomerVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
                 
     }
-
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
