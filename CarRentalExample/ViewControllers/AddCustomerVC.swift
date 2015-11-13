@@ -12,12 +12,14 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
 
     let DSM = DataStoreManagerMem.sharedInstance
     let DSMDB = DataStoreManagerDB.sharedInstance
-
+    var activeCustomer:CustomerDB?
+    
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var thumbConstraint: NSLayoutConstraint!
     @IBOutlet weak var customerNameTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var customerNameTextView: UITextField!
+    @IBOutlet weak var customerAgeTextView: UITextField!
     @IBOutlet weak var thumbnailImageView: UIImageView!
    
     override func viewDidLoad() {
@@ -32,6 +34,18 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
 
         customerNameTextView.delegate = self
+        
+        if let active = self.activeCustomer {
+            
+            self.customerNameTextView.text = active.name
+            
+        } else {
+            
+            self.activeCustomer = DSMDB.createCustomer()
+
+        }
+        
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -66,12 +80,16 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
         
         let imageData = UIImagePNGRepresentation(self.thumbnailImageView!.image!)
         
-        let customer = Customer(name:self.customerNameTextView!.text!, photo: imageData!)
+        activeCustomer!.name = self.customerNameTextView!.text!
         
-        DSM.addCustomer(customer)
+        let ageString = self.customerAgeTextView!.text!
+        if let age = Int(ageString) {
+            let ageNumber = NSNumber(integer:age)
+            activeCustomer!.age = ageNumber
+        }
         
-        let customerDB = DSMDB.createCustomer()
-        customerDB?.name = self.customerNameTextView!.text!
+        activeCustomer!.image = imageData
+        
         DSMDB.saveContext()
         
         self.dismissViewControllerAnimated(true, completion: nil)

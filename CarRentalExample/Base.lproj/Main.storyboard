@@ -34,7 +34,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="customerCellID" textLabel="zOi-LY-y3d" imageView="7PB-N3-XLY" style="IBUITableViewCellStyleDefault" id="az5-to-F2n" customClass="CustomerCell" customModule="CarRentalExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="customerCellID" textLabel="zOi-LY-y3d" detailTextLabel="66h-jG-Pen" imageView="7PB-N3-XLY" style="IBUITableViewCellStyleSubtitle" id="az5-to-F2n" customClass="CustomerCell" customModule="CarRentalExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="az5-to-F2n" id="BeU-pn-98J">
@@ -42,23 +42,34 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zOi-LY-y3d">
-                                            <rect key="frame" x="71" y="0.0" width="494" height="43"/>
+                                            <rect key="frame" x="71" y="5" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Placeholder" id="7PB-N3-XLY">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Placeholder" id="7PB-N3-XLY">
                                             <rect key="frame" x="15" y="0.0" width="41" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </imageView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="66h-jG-Pen">
+                                            <rect key="frame" x="71" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
-                                    <color key="backgroundColor" red="0.55253494146235993" green="0.64349657007086347" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.99270870040000003" green="0.97091181010000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="rgK-UC-fJt" kind="show" identifier="addCustomer" id="ztc-Dg-1pL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -104,14 +115,14 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naA-2H-Vh8" userLabel="Thumb View">
-                                <rect key="frame" x="200" y="136" width="200" height="200"/>
+                                <rect key="frame" x="200" y="136" width="150" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hRB-OL-Yvr">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <animations/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ9-ug-PZH">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <animations/>
                                         <connections>
                                             <action selector="imageHit:" destination="rgK-UC-fJt" eventType="touchUpInside" id="RCt-kt-1Wa"/>
@@ -125,10 +136,10 @@
                                     <constraint firstItem="SZ9-ug-PZH" firstAttribute="centerY" secondItem="naA-2H-Vh8" secondAttribute="centerY" id="7lZ-dW-BLv"/>
                                     <constraint firstItem="SZ9-ug-PZH" firstAttribute="height" secondItem="naA-2H-Vh8" secondAttribute="height" id="FHj-nV-rXZ"/>
                                     <constraint firstItem="SZ9-ug-PZH" firstAttribute="centerX" secondItem="naA-2H-Vh8" secondAttribute="centerX" id="Ul1-Xu-d1X"/>
-                                    <constraint firstAttribute="height" constant="200" id="bVD-Wf-nT1"/>
+                                    <constraint firstAttribute="height" constant="150" id="bVD-Wf-nT1"/>
                                     <constraint firstItem="hRB-OL-Yvr" firstAttribute="width" secondItem="naA-2H-Vh8" secondAttribute="width" id="bbW-Ry-cNv"/>
                                     <constraint firstItem="SZ9-ug-PZH" firstAttribute="width" secondItem="naA-2H-Vh8" secondAttribute="width" id="fC8-LS-fQb"/>
-                                    <constraint firstAttribute="width" constant="200" id="fv7-RC-BRp"/>
+                                    <constraint firstAttribute="width" constant="150" id="fv7-RC-BRp"/>
                                     <constraint firstItem="hRB-OL-Yvr" firstAttribute="height" secondItem="naA-2H-Vh8" secondAttribute="height" id="sDh-Qy-1NL"/>
                                     <constraint firstItem="hRB-OL-Yvr" firstAttribute="centerX" secondItem="naA-2H-Vh8" secondAttribute="centerX" id="xTN-l7-bml"/>
                                 </constraints>
@@ -142,21 +153,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Customer Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mv3-xR-o72" userLabel="Customer Age Text View">
+                                <rect key="frame" x="188" y="420" width="224" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="9C1-Ic-aG1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mv3-xR-o72" firstAttribute="width" secondItem="ERR-UC-mX9" secondAttribute="width" id="3qT-e6-gKz"/>
+                            <constraint firstItem="mv3-xR-o72" firstAttribute="top" secondItem="ERR-UC-mX9" secondAttribute="bottom" constant="8" id="KrK-HK-WZx"/>
                             <constraint firstItem="bPl-wI-a16" firstAttribute="top" secondItem="wDm-zi-HhF" secondAttribute="bottom" id="NIi-bW-bad"/>
                             <constraint firstItem="naA-2H-Vh8" firstAttribute="top" secondItem="wDm-zi-HhF" secondAttribute="bottom" constant="116" id="Umb-Pt-h1J"/>
+                            <constraint firstItem="mv3-xR-o72" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" id="aoh-dc-W1C"/>
                             <constraint firstItem="ERR-UC-mX9" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" id="jZ4-vc-CU2"/>
-                            <constraint firstItem="ERR-UC-mX9" firstAttribute="top" secondItem="naA-2H-Vh8" secondAttribute="bottom" constant="46" id="kZW-IF-ji7"/>
+                            <constraint firstItem="ERR-UC-mX9" firstAttribute="top" secondItem="naA-2H-Vh8" secondAttribute="bottom" constant="96" id="kZW-IF-ji7"/>
                             <constraint firstItem="bPl-wI-a16" firstAttribute="width" secondItem="ncb-4a-MLo" secondAttribute="width" id="pkl-Xz-gJ5"/>
-                            <constraint firstItem="naA-2H-Vh8" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" id="t7f-RC-gFd"/>
+                            <constraint firstItem="naA-2H-Vh8" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" constant="-25" id="t7f-RC-gFd"/>
                             <constraint firstItem="bPl-wI-a16" firstAttribute="centerX" secondItem="ncb-4a-MLo" secondAttribute="centerX" id="wdk-20-FTu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="Ilr-qe-3FJ" id="jnT-WG-Xn3"/>
+                        <outlet property="customerAgeTextView" destination="mv3-xR-o72" id="W27-k8-5pb"/>
                         <outlet property="customerNameTextView" destination="ERR-UC-mX9" id="zxF-Dp-QGJ"/>
                         <outlet property="customerNameTopConstraint" destination="kZW-IF-ji7" id="DKM-K8-rlz"/>
                         <outlet property="saveButton" destination="sBn-HH-1Ie" id="EWp-Oo-7XK"/>
@@ -224,4 +248,7 @@
     <resources>
         <image name="Placeholder" width="465" height="491"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ztc-Dg-1pL"/>
+    </inferredMetricsTieBreakers>
 </document>

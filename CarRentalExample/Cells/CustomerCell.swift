@@ -23,11 +23,12 @@ class CustomerCell: UITableViewCell {
     
     func configure(customer:CustomerDB) {
         self.textLabel!.text = customer.name
+        self.detailTextLabel!.text = customer.age?.stringValue
         
-/*        if let imageData_ = customer.photo {
+        if let imageData_ = customer.image {
             let image = UIImage(data: imageData_)
             self.imageView!.image = image
-        }*/
+        }
     }
 
 }
