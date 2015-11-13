@@ -10,7 +10,6 @@ import UIKit
 
 class CustomerVC: UITableViewController {
 
-    let DSM = DataStoreManagerMem.sharedInstance
     let DSMDB = DataStoreManagerDB.sharedInstance
     
     override func viewDidLoad() {
@@ -27,7 +26,6 @@ class CustomerVC: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
     }
-    
     
     override func prefersStatusBarHidden() -> Bool {
         return false
@@ -47,7 +45,7 @@ class CustomerVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return DSM.getCustomerList()!.count
+        return DSMDB.getCustomerList()!.count
     }
 
     
@@ -55,9 +53,9 @@ class CustomerVC: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("customerCellID", forIndexPath: indexPath) as! CustomerCell
 
         // Configure the cell...
-        let customerList = DSM.getCustomerList()
+        let customerList = DSMDB.getCustomerList()
         
-        if let customerList_ = customerList {
+        if let customerList_:[CustomerDB] = customerList {
             let customer = customerList_[indexPath.row]
             cell.configure(customer)
         }

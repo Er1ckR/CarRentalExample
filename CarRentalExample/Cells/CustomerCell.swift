@@ -21,13 +21,13 @@ class CustomerCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(customer:Customer) {
+    func configure(customer:CustomerDB) {
         self.textLabel!.text = customer.name
         
-        if let imageData_ = customer.photo {
+/*        if let imageData_ = customer.photo {
             let image = UIImage(data: imageData_)
             self.imageView!.image = image
-        }
+        }*/
     }
 
 }

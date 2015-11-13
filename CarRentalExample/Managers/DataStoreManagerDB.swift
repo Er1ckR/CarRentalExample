@@ -11,7 +11,7 @@ import CoreData
 
 class DataStoreManagerDB: NSObject {
    
-    var customers = [NSManagedObject]()
+    var customers:[CustomerDB]? = [CustomerDB]()
 
     class var sharedInstance: DataStoreManagerDB {
         struct Singleton {
@@ -30,7 +30,7 @@ class DataStoreManagerDB: NSObject {
         
         do {
             
-            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [CustomerDB]
             
             if let results = fetchedResults {
                 customers = results
@@ -46,9 +46,9 @@ class DataStoreManagerDB: NSObject {
         
     }
     
-    func getCustomerList() -> [Customer]? {
+    func getCustomerList() -> [CustomerDB]? {
         
-        return nil
+        return customers
     }
     
     func createCustomer() -> CustomerDB? {
@@ -73,6 +73,16 @@ class DataStoreManagerDB: NSObject {
         do {
 
             try managedContext.save()
+            
+            let fetchRequest = NSFetchRequest(entityName: "CustomerDB")
+            
+            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [CustomerDB]
+            
+            if let results = fetchedResults {
+                customers = results
+            } else {
+                print("error fetching from database")
+            }
             
         } catch let error as NSError {
             
