@@ -11,6 +11,7 @@ import UIKit
 class CustomerVC: UITableViewController {
 
     let DSM = DataStoreManagerMem.sharedInstance
+    let DSMDB = DataStoreManagerDB.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()

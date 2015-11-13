@@ -18,6 +18,11 @@
 		C10D36BE1BEC2F6A0082B72D /* CarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D36BD1BEC2F6A0082B72D /* CarsCell.swift */; };
 		C10D36C21BEC300D0082B72D /* DataStoreManagerMem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D36C11BEC300D0082B72D /* DataStoreManagerMem.swift */; };
 		C10D36C61BEC37110082B72D /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D36C51BEC37110082B72D /* Customer.swift */; };
+		C10F6AA61BF55A59001EBBF0 /* CarDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10F6AA21BF55A59001EBBF0 /* CarDB+CoreDataProperties.swift */; };
+		C10F6AA71BF55A59001EBBF0 /* CarDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10F6AA31BF55A59001EBBF0 /* CarDB.swift */; };
+		C10F6AA81BF55A59001EBBF0 /* CustomerDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10F6AA41BF55A59001EBBF0 /* CustomerDB+CoreDataProperties.swift */; };
+		C10F6AA91BF55A59001EBBF0 /* CustomerDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10F6AA51BF55A59001EBBF0 /* CustomerDB.swift */; };
+		C10F6AAB1BF55DF2001EBBF0 /* DataStoreManagerDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10F6AAA1BF55DF2001EBBF0 /* DataStoreManagerDB.swift */; };
 		C1792EE81BF2B9470059F61A /* AddCustomerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +40,11 @@
 		C10D36BD1BEC2F6A0082B72D /* CarsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarsCell.swift; path = Cells/CarsCell.swift; sourceTree = "<group>"; };
 		C10D36C11BEC300D0082B72D /* DataStoreManagerMem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStoreManagerMem.swift; path = Managers/DataStoreManagerMem.swift; sourceTree = "<group>"; };
 		C10D36C51BEC37110082B72D /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Customer.swift; path = Models/Customer.swift; sourceTree = "<group>"; };
+		C10F6AA21BF55A59001EBBF0 /* CarDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CarDB+CoreDataProperties.swift"; path = "Models/CarDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C10F6AA31BF55A59001EBBF0 /* CarDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarDB.swift; path = Models/CarDB.swift; sourceTree = "<group>"; };
+		C10F6AA41BF55A59001EBBF0 /* CustomerDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CustomerDB+CoreDataProperties.swift"; path = "Models/CustomerDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C10F6AA51BF55A59001EBBF0 /* CustomerDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerDB.swift; path = Models/CustomerDB.swift; sourceTree = "<group>"; };
+		C10F6AAA1BF55DF2001EBBF0 /* DataStoreManagerDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStoreManagerDB.swift; path = Managers/DataStoreManagerDB.swift; sourceTree = "<group>"; };
 		C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCustomerVC.swift; path = ViewControllers/AddCustomerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C10D36C11BEC300D0082B72D /* DataStoreManagerMem.swift */,
+				C10F6AAA1BF55DF2001EBBF0 /* DataStoreManagerDB.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -112,6 +123,10 @@
 		C10D36B61BEC2DA20082B72D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C10F6AA21BF55A59001EBBF0 /* CarDB+CoreDataProperties.swift */,
+				C10F6AA31BF55A59001EBBF0 /* CarDB.swift */,
+				C10F6AA41BF55A59001EBBF0 /* CustomerDB+CoreDataProperties.swift */,
+				C10F6AA51BF55A59001EBBF0 /* CustomerDB.swift */,
 				C10D36C51BEC37110082B72D /* Customer.swift */,
 			);
 			name = Models;
@@ -191,11 +206,16 @@
 				C10D36A71BEC28140082B72D /* CarRentalExample.xcdatamodeld in Sources */,
 				C10D36BA1BEC2ED20082B72D /* CarsVC.swift in Sources */,
 				C1792EE81BF2B9470059F61A /* AddCustomerVC.swift in Sources */,
+				C10F6AA91BF55A59001EBBF0 /* CustomerDB.swift in Sources */,
 				C10D36BE1BEC2F6A0082B72D /* CarsCell.swift in Sources */,
+				C10F6AAB1BF55DF2001EBBF0 /* DataStoreManagerDB.swift in Sources */,
 				C10D36C61BEC37110082B72D /* Customer.swift in Sources */,
 				C10D369F1BEC28140082B72D /* AppDelegate.swift in Sources */,
 				C10D36B81BEC2EA30082B72D /* CustomerVC.swift in Sources */,
 				C10D36BC1BEC2F4B0082B72D /* CustomerCell.swift in Sources */,
+				C10F6AA61BF55A59001EBBF0 /* CarDB+CoreDataProperties.swift in Sources */,
+				C10F6AA81BF55A59001EBBF0 /* CustomerDB+CoreDataProperties.swift in Sources */,
+				C10F6AA71BF55A59001EBBF0 /* CarDB.swift in Sources */,
 				C10D36C21BEC300D0082B72D /* DataStoreManagerMem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CarRentalExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.pace.CarRentalExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -319,6 +340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CarRentalExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.pace.CarRentalExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

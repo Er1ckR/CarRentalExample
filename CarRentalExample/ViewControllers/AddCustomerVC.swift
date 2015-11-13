@@ -11,6 +11,7 @@ import UIKit
 class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let DSM = DataStoreManagerMem.sharedInstance
+    let DSMDB = DataStoreManagerDB.sharedInstance
 
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -68,6 +69,10 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
         let customer = Customer(name:self.customerNameTextView!.text!, photo: imageData!)
         
         DSM.addCustomer(customer)
+        
+        let customerDB = DSMDB.createCustomer()
+        customerDB?.name = self.customerNameTextView!.text!
+        DSMDB.saveContext()
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
