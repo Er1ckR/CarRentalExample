@@ -8,8 +8,15 @@
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ReservationDB" representedClassName=".ReservationDB" syncable="YES">
+        <attribute name="datetime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="pickedup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="car" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CarDB" syncable="YES"/>
+        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CustomerDB" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="CustomerDB" positionX="-144" positionY="-198" width="128" height="88"/>
         <element name="CarDB" positionX="61" positionY="-153" width="128" height="60"/>
+        <element name="CustomerDB" positionX="-144" positionY="-198" width="128" height="88"/>
+        <element name="ReservationDB" positionX="-45" positionY="-42" width="128" height="105"/>
     </elements>
 </model>

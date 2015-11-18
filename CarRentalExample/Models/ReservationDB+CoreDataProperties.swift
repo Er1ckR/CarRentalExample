@@ -1,5 +1,5 @@
 //
-//  CustomerDB+CoreDataProperties.swift
+//  ReservationDB+CoreDataProperties.swift
 //  CarRentalExample
 //
 //  Created by Bob Pascazio on 11/17/15.
@@ -12,10 +12,11 @@
 import Foundation
 import CoreData
 
-extension CustomerDB {
+extension ReservationDB {
 
-    @NSManaged var age: NSNumber?
-    @NSManaged var image: NSData?
-    @NSManaged var name: String?
+    @NSManaged var datetime: NSDate?
+    @NSManaged var pickedup: NSNumber?
+    @NSManaged var car: CarDB?
+    @NSManaged var customer: CustomerDB?
 
 }
