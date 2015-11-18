@@ -23,7 +23,7 @@ class DataStoreManagerDB: NSObject {
     override init() {
         
         super.init()
-        
+  
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "CustomerDB")

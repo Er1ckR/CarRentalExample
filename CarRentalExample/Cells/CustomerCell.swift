@@ -26,8 +26,13 @@ class CustomerCell: UITableViewCell {
         self.detailTextLabel!.text = customer.age?.stringValue
         
         if let imageData_ = customer.image {
-            let image = UIImage(data: imageData_)
-            self.imageView!.image = image
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+                let image = UIImage(data: imageData_)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.imageView!.image = image
+                }
+            }
+            
         }
     }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let DSM = DataStoreManagerMem.sharedInstance
@@ -21,7 +22,7 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
     @IBOutlet weak var customerNameTextView: UITextField!
     @IBOutlet weak var customerAgeTextView: UITextField!
     @IBOutlet weak var thumbnailImageView: UIImageView!
-   
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,7 +79,7 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
     
     func saveHit(sender: UIBarButtonItem) {
         
-        let imageData = UIImagePNGRepresentation(self.thumbnailImageView!.image!)
+        let image = self.thumbnailImageView!.image!
         
         activeCustomer!.name = self.customerNameTextView!.text!
         
@@ -88,9 +89,11 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
             activeCustomer!.age = ageNumber
         }
         
-        activeCustomer!.image = imageData
-        
-        DSMDB.saveContext()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { // 1
+            let imageData = UIImagePNGRepresentation(image)
+            self.activeCustomer!.image = imageData
+            self.DSMDB.saveContext()
+        }
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
