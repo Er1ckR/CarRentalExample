@@ -20,5 +20,9 @@ class CarsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(car:CarDB) {
+        self.textLabel!.text = car.make
+    }
 
 }

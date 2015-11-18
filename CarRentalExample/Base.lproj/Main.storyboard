@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -17,7 +18,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="zpb-UN-sfG" kind="relationship" relationship="viewControllers" id="f32-IM-era"/>
-                        <segue destination="tDm-kQ-32c" kind="relationship" relationship="viewControllers" id="Arv-hH-W2r"/>
+                        <segue destination="0jr-Ad-l3f" kind="relationship" relationship="viewControllers" id="Arv-hH-W2r"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faq-Pq-B1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,8 +203,8 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gLu-kT-usz" customClass="CarsCell" customModule="CarRentalExample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCellID" id="gLu-kT-usz" customClass="CarsCell" customModule="CarRentalExample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gLu-kT-usz" id="bpZ-83-PCW">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -218,11 +219,74 @@
                             <outlet property="delegate" destination="tDm-kQ-32c" id="6aJ-0n-B8l"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Cars" id="itQ-df-HrO"/>
+                    <navigationItem key="navigationItem" id="0p2-Wm-oBo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5uR-qK-Uw5">
+                            <connections>
+                                <segue destination="vOQ-Sd-b3X" kind="presentation" id="gd8-Pq-ICK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6zR-DS-FdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="1164"/>
+            <point key="canvasLocation" x="2250" y="1164"/>
+        </scene>
+        <!--Add Car View Controller-->
+        <scene sceneID="v8j-CK-cmB">
+            <objects>
+                <viewController id="vOQ-Sd-b3X" userLabel="Add Car View Controller" customClass="AddCarVC" customModule="CarRentalExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qPq-Bt-dWW"/>
+                        <viewControllerLayoutGuide type="bottom" id="hMj-mO-zg2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qIM-YA-0f3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fm-J5-OgF">
+                                <rect key="frame" x="19" y="20" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelHit:" destination="vOQ-Sd-b3X" eventType="touchUpInside" id="RxT-09-NG6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EE8-y5-gEK">
+                                <rect key="frame" x="540" y="28" width="34" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveHit:" destination="vOQ-Sd-b3X" eventType="touchUpInside" id="8K8-5l-Bz8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eA9-Tn-hwR">
+                                <rect key="frame" x="207" y="155" width="186" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="rc9-ia-dwr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6fm-J5-OgF" firstAttribute="top" secondItem="qPq-Bt-dWW" secondAttribute="bottom" id="79d-HA-BLS"/>
+                            <constraint firstItem="6fm-J5-OgF" firstAttribute="leading" secondItem="qIM-YA-0f3" secondAttribute="leadingMargin" constant="-1" id="Gl1-ce-46C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EE8-y5-gEK" secondAttribute="trailing" constant="6" id="NUy-1j-2Mo"/>
+                            <constraint firstItem="EE8-y5-gEK" firstAttribute="top" secondItem="qPq-Bt-dWW" secondAttribute="bottom" constant="8" id="UCZ-Ef-o7e"/>
+                            <constraint firstItem="eA9-Tn-hwR" firstAttribute="top" secondItem="qPq-Bt-dWW" secondAttribute="bottom" constant="135" id="VVb-Oq-Kwf"/>
+                            <constraint firstItem="eA9-Tn-hwR" firstAttribute="centerX" secondItem="qIM-YA-0f3" secondAttribute="centerX" id="Y3X-F6-PVV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="carMakeField" destination="eA9-Tn-hwR" id="Dro-oy-dqF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8Y-3z-IfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2954" y="1173"/>
         </scene>
         <!--Customers-->
         <scene sceneID="QGw-kg-pak">
@@ -243,6 +307,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zk-fA-aO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-33" y="1167"/>
+        </scene>
+        <!--Cars-->
+        <scene sceneID="v4Z-R0-rPV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0jr-Ad-l3f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cars" id="itQ-df-HrO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WDd-xe-bNQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tDm-kQ-32c" kind="relationship" relationship="rootViewController" id="fPL-cI-IBe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qyg-Ug-xUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1438" y="1164"/>
         </scene>
     </scenes>
     <resources>

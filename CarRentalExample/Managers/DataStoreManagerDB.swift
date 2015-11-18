@@ -12,6 +12,7 @@ import CoreData
 class DataStoreManagerDB: NSObject {
    
     var customers:[CustomerDB]? = [CustomerDB]()
+    var cars:[CarDB]? = [CarDB]()
 
     class var sharedInstance: DataStoreManagerDB {
         struct Singleton {
@@ -24,11 +25,18 @@ class DataStoreManagerDB: NSObject {
         
         super.init()
   
+        self.refreshManagedObjects()
+        
+    }
+    
+    func refreshManagedObjects() {
+
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "CustomerDB")
         
         do {
+            
+            let fetchRequest = NSFetchRequest(entityName: "CustomerDB")
             
             let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [CustomerDB]
             
@@ -38,17 +46,32 @@ class DataStoreManagerDB: NSObject {
                 print("error fetching from database")
             }
             
+            let fetchRequestCars = NSFetchRequest(entityName: "CarDB")
+            
+            let fetchedResultsCars = try managedContext.executeFetchRequest(fetchRequestCars) as? [CarDB]
+            
+            if let results = fetchedResultsCars {
+                cars = results
+            } else {
+                print("error fetching from database")
+            }
+            
         } catch let error as NSError {
-
+            
             print("Fetch failed: \(error.localizedDescription)")
-        
+            
         }
-        
+
     }
     
     func getCustomerList() -> [CustomerDB]? {
         
         return customers
+    }
+    
+    func getCarsList() -> [CarDB]? {
+        
+        return cars
     }
     
     func createCustomer() -> CustomerDB? {
@@ -65,6 +88,19 @@ class DataStoreManagerDB: NSObject {
         
     }
     
+    func createCar() -> CarDB? {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        let entity = NSEntityDescription.entityForName("CarDB", inManagedObjectContext: managedContext)
+        
+        let car:CarDB? = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext:managedContext) as? CarDB
+        
+        return car
+    }
+    
     func saveContext() {
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -74,22 +110,13 @@ class DataStoreManagerDB: NSObject {
 
             try managedContext.save()
             
-            let fetchRequest = NSFetchRequest(entityName: "CustomerDB")
-            
-            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [CustomerDB]
-            
-            if let results = fetchedResults {
-                customers = results
-            } else {
-                print("error fetching from database")
-            }
-            
         } catch let error as NSError {
             
             print("save failed: \(error.localizedDescription)")
             
         }
         
+        self.refreshManagedObjects()
     }
 
 }

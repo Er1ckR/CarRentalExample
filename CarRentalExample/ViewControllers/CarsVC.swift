@@ -10,6 +10,8 @@ import UIKit
 
 class CarsVC: UITableViewController {
 
+    let DSMDB = DataStoreManagerDB.sharedInstance
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +25,11 @@ class CarsVC: UITableViewController {
         
         print("customer list count \(myList!.count)")
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,23 +39,30 @@ class CarsVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return DSMDB.getCarsList()!.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
         // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("carCellID", forIndexPath: indexPath) as! CarsCell
+        
+        // Configure the cell...
+        let carsList = DSMDB.getCarsList()
+        
+        if let carsList_:[CarDB] = carsList {
+            let car = carsList_[indexPath.row]
+            cell.configure(car)
+        }
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
