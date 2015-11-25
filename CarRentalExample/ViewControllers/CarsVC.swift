@@ -24,6 +24,9 @@ class CarsVC: UITableViewController {
         let myList = DataStoreManagerMem.sharedInstance.getCustomerList()
         
         print("customer list count \(myList!.count)")
+        
+        tableView.registerNib(UINib(nibName: "CarsCell", bundle: nil), forCellReuseIdentifier: "carCellID")
+
     }
     
     override func viewWillAppear(animated: Bool) {

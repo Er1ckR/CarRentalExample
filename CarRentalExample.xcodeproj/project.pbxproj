@@ -28,6 +28,9 @@
 		C13258531BFC06FF00874328 /* CarDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132584F1BFC06FF00874328 /* CarDB+CoreDataProperties.swift */; };
 		C15D270A1C052E4B006038B9 /* ReservationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D27091C052E4B006038B9 /* ReservationVC.swift */; };
 		C15D270C1C05320A006038B9 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D270B1C05320A006038B9 /* ReservationCell.swift */; };
+		C15D270E1C053391006038B9 /* AddResVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D270D1C053391006038B9 /* AddResVC.swift */; };
+		C15D27101C053790006038B9 /* CarsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15D270F1C053790006038B9 /* CarsCell.xib */; };
+		C15D27121C053979006038B9 /* CustomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15D27111C053979006038B9 /* CustomerCell.xib */; };
 		C1792EE81BF2B9470059F61A /* AddCustomerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		C132584F1BFC06FF00874328 /* CarDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CarDB+CoreDataProperties.swift"; path = "Models/CarDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C15D27091C052E4B006038B9 /* ReservationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationVC.swift; sourceTree = "<group>"; };
 		C15D270B1C05320A006038B9 /* ReservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationCell.swift; path = Cells/ReservationCell.swift; sourceTree = "<group>"; };
+		C15D270D1C053391006038B9 /* AddResVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddResVC.swift; path = ViewControllers/AddResVC.swift; sourceTree = "<group>"; };
+		C15D270F1C053790006038B9 /* CarsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CarsCell.xib; path = Cells/CarsCell.xib; sourceTree = "<group>"; };
+		C15D27111C053979006038B9 /* CustomerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCell.xib; sourceTree = "<group>"; };
 		C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCustomerVC.swift; path = ViewControllers/AddCustomerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +116,7 @@
 				C1792EE71BF2B9470059F61A /* AddCustomerVC.swift */,
 				C132584A1BFBFF9800874328 /* AddCarVC.swift */,
 				C15D27091C052E4B006038B9 /* ReservationVC.swift */,
+				C15D270D1C053391006038B9 /* AddResVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -117,8 +124,10 @@
 		C10D36B41BEC2D8C0082B72D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C10D36BB1BEC2F4B0082B72D /* CustomerCell.swift */,
+				C15D270F1C053790006038B9 /* CarsCell.xib */,
 				C10D36BD1BEC2F6A0082B72D /* CarsCell.swift */,
+				C15D27111C053979006038B9 /* CustomerCell.xib */,
+				C10D36BB1BEC2F4B0082B72D /* CustomerCell.swift */,
 				C15D270B1C05320A006038B9 /* ReservationCell.swift */,
 			);
 			name = Cells;
@@ -207,6 +216,8 @@
 			files = (
 				C10D36AC1BEC28140082B72D /* LaunchScreen.storyboard in Resources */,
 				C10D36A91BEC28140082B72D /* Assets.xcassets in Resources */,
+				C15D27101C053790006038B9 /* CarsCell.xib in Resources */,
+				C15D27121C053979006038B9 /* CustomerCell.xib in Resources */,
 				C10D36A41BEC28140082B72D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +242,7 @@
 				C132584B1BFBFF9800874328 /* AddCarVC.swift in Sources */,
 				C13258531BFC06FF00874328 /* CarDB+CoreDataProperties.swift in Sources */,
 				C10D36C61BEC37110082B72D /* Customer.swift in Sources */,
+				C15D270E1C053391006038B9 /* AddResVC.swift in Sources */,
 				C10D369F1BEC28140082B72D /* AppDelegate.swift in Sources */,
 				C10D36B81BEC2EA30082B72D /* CustomerVC.swift in Sources */,
 				C13258521BFC06FF00874328 /* ReservationDB.swift in Sources */,

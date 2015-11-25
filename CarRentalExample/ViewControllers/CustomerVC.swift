@@ -20,7 +20,9 @@ class CustomerVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-                
+        
+        tableView.registerNib(UINib(nibName: "CustomerCell", bundle: nil), forCellReuseIdentifier: "customerCellID")
+        
     }
     
     override func viewWillAppear(animated: Bool) {
