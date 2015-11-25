@@ -309,17 +309,17 @@
             </objects>
             <point key="canvasLocation" x="-33" y="1167"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Reservations View Controller-->
         <scene sceneID="zFi-9Q-sZa">
             <objects>
-                <tableViewController id="GRf-UD-gwL" sceneMemberID="viewController">
+                <tableViewController id="GRf-UD-gwL" userLabel="Reservations View Controller" customClass="ReservationVC" customModule="CarRentalExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aoH-pm-BfW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Zhb-vT-2hd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reservationId" id="Zhb-vT-2hd">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zhb-vT-2hd" id="mFK-SW-bjO">

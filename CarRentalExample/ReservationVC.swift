@@ -36,12 +36,12 @@ class ReservationVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return DSMDB.getReservationsCount()!.count
+        return DSMDB.getReservationsList()!.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reservationId", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reservationId", forIndexPath: indexPath) as! ReservationCell
 
         // Configure the cell...
         let resList = DSMDB.getReservationsList()

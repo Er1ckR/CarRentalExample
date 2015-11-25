@@ -13,6 +13,7 @@ class DataStoreManagerDB: NSObject {
    
     var customers:[CustomerDB]? = [CustomerDB]()
     var cars:[CarDB]? = [CarDB]()
+    var reservations:[ReservationDB]? = [ReservationDB]()
 
     class var sharedInstance: DataStoreManagerDB {
         struct Singleton {
@@ -36,6 +37,8 @@ class DataStoreManagerDB: NSObject {
         
         do {
             
+            // Fetch Customers
+            
             let fetchRequest = NSFetchRequest(entityName: "CustomerDB")
             
             let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [CustomerDB]
@@ -46,12 +49,26 @@ class DataStoreManagerDB: NSObject {
                 print("error fetching from database")
             }
             
+            // Fetch Cars
+            
             let fetchRequestCars = NSFetchRequest(entityName: "CarDB")
             
             let fetchedResultsCars = try managedContext.executeFetchRequest(fetchRequestCars) as? [CarDB]
             
             if let results = fetchedResultsCars {
                 cars = results
+            } else {
+                print("error fetching from database")
+            }
+            
+            // Fetch Reservations
+            
+            let fetchRequestRes = NSFetchRequest(entityName: "ReservationDB")
+            
+            let fetchedResultsRes = try managedContext.executeFetchRequest(fetchRequestRes) as? [ReservationDB]
+            
+            if let results = fetchedResultsRes {
+                reservations = results
             } else {
                 print("error fetching from database")
             }
@@ -72,6 +89,25 @@ class DataStoreManagerDB: NSObject {
     func getCarsList() -> [CarDB]? {
         
         return cars
+    }
+    
+    func getReservationsList() -> [ReservationDB]? {
+        
+        return reservations
+    }
+    
+    func createReservation() -> ReservationDB? {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        let entity = NSEntityDescription.entityForName("ReservationDB", inManagedObjectContext: managedContext)
+        
+        let res:ReservationDB? = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext:managedContext) as? ReservationDB
+        
+        return res
+        
     }
     
     func createCustomer() -> CustomerDB? {
