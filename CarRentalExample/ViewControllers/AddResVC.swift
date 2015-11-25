@@ -12,6 +12,9 @@ class AddResVC: UITableViewController {
 
     let DSMDB = DataStoreManagerDB.sharedInstance
 
+    var car:CarDB?
+    var customer:CustomerDB?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -84,9 +87,42 @@ class AddResVC: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         
+        if let car_ = self.car, customer_ = self.customer {
+            
+            let res = DSMDB.createReservation()
+            if let res_ = res {
+                res_.datetime = NSDate()
+                res_.customer = customer_
+                res_.car = car_
+                res_.pickedup = NSNumber(bool:false)
+            }
+            DSMDB.saveContext()
+            
+        }
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        if indexPath.section == 0 {
+            
+            // Configure the cell...
+            let carsList = DSMDB.getCarsList()
+            
+            if let carsList_:[CarDB] = carsList {
+                let car = carsList_[indexPath.row]
+                self.car = car
+            }
+        } else {
+            
+            // Configure the cell...
+            let customerList = DSMDB.getCustomerList()
+            
+            if let customerList_:[CustomerDB] = customerList {
+                let customer = customerList_[indexPath.row]
+                self.customer = customer
+            }
+        }
         
     }
 

@@ -24,10 +24,11 @@ class ReservationCell: UITableViewCell {
     func configure(res:ReservationDB) {
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd 'at' h:mm a"
-        let str = dateFormatter.stringFromDate(res.datetime!)
-        
-        self.textLabel!.text = str
+        dateFormatter.dateFormat = "MM-dd"
+        let date = dateFormatter.stringFromDate(res.datetime!)
+        let name = res.customer?.name
+        let make = res.car?.make
+        self.textLabel!.text = "\(date) \(name!) \(make!)"
     }
     
 }
