@@ -22,7 +22,8 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
     @IBOutlet weak var customerNameTextView: UITextField!
     @IBOutlet weak var customerAgeTextView: UITextField!
     @IBOutlet weak var thumbnailImageView: UIImageView!
-
+    @IBOutlet weak var customerLicenseTextView: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -88,6 +89,8 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
             let ageNumber = NSNumber(integer:age)
             activeCustomer!.age = ageNumber
         }
+        
+        activeCustomer!.license = self.customerLicenseTextView!.text!
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { // 1
             let imageData = UIImagePNGRepresentation(image)

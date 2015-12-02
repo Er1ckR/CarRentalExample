@@ -17,5 +17,6 @@ extension CustomerDB {
     @NSManaged var age: NSNumber?
     @NSManaged var image: NSData?
     @NSManaged var name: String?
+    @NSManaged var license: String?
 
 }

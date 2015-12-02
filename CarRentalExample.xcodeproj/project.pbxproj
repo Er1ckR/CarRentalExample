@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C103D0B41C0E6E9B0008DC1A /* CarRentalExample 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CarRentalExample 2.xcdatamodel"; sourceTree = "<group>"; };
 		C10D369B1BEC28140082B72D /* CarRentalExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarRentalExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10D369E1BEC28140082B72D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C10D36A31BEC28140082B72D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -406,9 +407,10 @@
 		C10D36A51BEC28140082B72D /* CarRentalExample.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C103D0B41C0E6E9B0008DC1A /* CarRentalExample 2.xcdatamodel */,
 				C10D36A61BEC28140082B72D /* CarRentalExample.xcdatamodel */,
 			);
-			currentVersion = C10D36A61BEC28140082B72D /* CarRentalExample.xcdatamodel */;
+			currentVersion = C103D0B41C0E6E9B0008DC1A /* CarRentalExample 2.xcdatamodel */;
 			path = CarRentalExample.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

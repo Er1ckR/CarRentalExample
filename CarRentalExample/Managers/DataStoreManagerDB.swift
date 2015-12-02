@@ -41,6 +41,8 @@ class DataStoreManagerDB: NSObject {
             
             let fetchRequest = NSFetchRequest(entityName: "CustomerDB")
             
+            //fetchRequest.predicate = NSPredicate(format: "name like 'b?b'")
+            
             let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [CustomerDB]
             
             if let results = fetchedResults {
@@ -64,6 +66,13 @@ class DataStoreManagerDB: NSObject {
             // Fetch Reservations
             
             let fetchRequestRes = NSFetchRequest(entityName: "ReservationDB")
+            
+            let bobpredicate = NSPredicate(format: "customer.name like 'b?b'")
+            let janepredicate = NSPredicate(format: "customer.name like 'jane'")
+            let compoundpredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bobpredicate, janepredicate])
+            
+            fetchRequestRes.predicate = compoundpredicate
+            fetchRequestRes.fetchLimit = 10
             
             let fetchedResultsRes = try managedContext.executeFetchRequest(fetchRequestRes) as? [ReservationDB]
             

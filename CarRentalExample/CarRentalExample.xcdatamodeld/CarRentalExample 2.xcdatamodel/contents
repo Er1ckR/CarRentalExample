@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="CarDB" representedClassName=".CarDB" syncable="YES">
+        <attribute name="make" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CustomerDB" representedClassName=".CustomerDB" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="license" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ReservationDB" representedClassName=".ReservationDB" syncable="YES">
+        <attribute name="datetime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="pickedup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="car" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CarDB" syncable="YES"/>
+        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CustomerDB" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CarDB" positionX="61" positionY="-153" width="128" height="60"/>
+        <element name="CustomerDB" positionX="-144" positionY="-198" width="128" height="105"/>
+        <element name="ReservationDB" positionX="-45" positionY="-42" width="128" height="105"/>
+    </elements>
+</model>
