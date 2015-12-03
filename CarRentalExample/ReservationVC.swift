@@ -27,7 +27,8 @@ class ReservationVC: UITableViewController {
     
     func clearReservations(sender:UIBarButtonItem) {
         
-        
+        DSMDB.clearReservations()
+        tableView.reloadData()
         
     }
 

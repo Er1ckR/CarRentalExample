@@ -71,7 +71,7 @@ class DataStoreManagerDB: NSObject {
             let janepredicate = NSPredicate(format: "customer.name like 'jane'")
             let compoundpredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bobpredicate, janepredicate])
             
-            fetchRequestRes.predicate = compoundpredicate
+            // fetchRequestRes.predicate = compoundpredicate
             fetchRequestRes.fetchLimit = 10
             
             let fetchedResultsRes = try managedContext.executeFetchRequest(fetchRequestRes) as? [ReservationDB]
@@ -162,6 +162,42 @@ class DataStoreManagerDB: NSObject {
         }
         
         self.refreshManagedObjects()
+    }
+    
+    func clearReservations() {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        do {
+            
+            // Fetch Reservations
+            
+            let fetchRequestRes = NSFetchRequest(entityName: "ReservationDB")
+            
+            let fetchedResultsRes = try managedContext.executeFetchRequest(fetchRequestRes) as? [ReservationDB]
+            
+            if let results = fetchedResultsRes {
+                
+                for reservation in results {
+                    
+                    managedContext.deleteObject(reservation)
+                }
+                
+                try managedContext.save()
+                
+                reservations = [ReservationDB]()
+                
+            } else {
+                print("error fetching from database")
+            }
+            
+        } catch let error as NSError {
+        
+            print("Fetch failed: \(error.localizedDescription)")
+        
+        }
+    
     }
 
 }
