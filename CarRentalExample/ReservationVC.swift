@@ -20,6 +20,15 @@ class ReservationVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .Plain, target: self, action: "clearReservations:")
+        
+    }
+    
+    func clearReservations(sender:UIBarButtonItem) {
+        
+        
+        
     }
 
     override func viewWillAppear(animated: Bool) {
