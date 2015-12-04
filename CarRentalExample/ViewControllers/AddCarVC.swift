@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddCarVC: UIViewController {
+class AddCarVC: UIViewController, DataStoreOperationCompleted {
 
     @IBOutlet weak var carMakeField: UITextField!
 
@@ -29,13 +29,20 @@ class AddCarVC: UIViewController {
         
         let car = DSMDB.createCar()
         car?.make = self.carMakeField.text
-        DSMDB.saveContext()
+        DSMDB.saveContext(self)
         
-        dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func cancelHit(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+ 
+    // MARK: - DataStoreOperationCompleted
+
+    func completed() {
+
+        dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     /*

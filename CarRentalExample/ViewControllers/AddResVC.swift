@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddResVC: UITableViewController {
+class AddResVC: UITableViewController, DataStoreOperationCompleted {
 
     let DSMDB = DataStoreManagerDB.sharedInstance
 
@@ -96,7 +96,7 @@ class AddResVC: UITableViewController {
                 res_.car = car_
                 res_.pickedup = NSNumber(bool:false)
             }
-            DSMDB.saveContext()
+            DSMDB.saveContext(nil)
             
         }
         
@@ -170,5 +170,8 @@ class AddResVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
 
+    func completed() {
+        
+    }
 
 }

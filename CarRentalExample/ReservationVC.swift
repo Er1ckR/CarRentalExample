@@ -23,6 +23,17 @@ class ReservationVC: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .Plain, target: self, action: "clearReservations:")
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "ContextUpdatedNotification:", name:"ContextUpdated", object: nil)
+
+        tableView.reloadData()
+
+    }
+    
+    func ContextUpdatedNotification(notification: NSNotification) {
+        
+        tableView.reloadData()
+        notification.object
+
     }
     
     func clearReservations(sender:UIBarButtonItem) {
@@ -33,7 +44,6 @@ class ReservationVC: UITableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

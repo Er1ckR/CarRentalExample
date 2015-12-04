@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol DataStoreOperationCompleted {
+    func completed()
+}
+
 class DataStoreManagerDB: NSObject {
    
     var customers:[CustomerDB]? = [CustomerDB]()
@@ -146,22 +150,31 @@ class DataStoreManagerDB: NSObject {
         return car
     }
     
-    func saveContext() {
+    func saveContext(delegate:DataStoreOperationCompleted?) {
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        
-        do {
+            
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+                do {
+                
+                    try managedContext.save()
+                    
+                } catch let error as NSError {
+                    
+                    print("save failed: \(error.localizedDescription)")
+                    
+                }
+                self.refreshManagedObjects()
+            NSNotificationCenter.defaultCenter().postNotificationName("ContextUpdated", object: nil)
 
-            try managedContext.save()
-            
-        } catch let error as NSError {
-            
-            print("save failed: \(error.localizedDescription)")
-            
-        }
-        
-        self.refreshManagedObjects()
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let delegate_ = delegate {
+                        delegate_.completed()
+                    }
+                }
+            }
+       
     }
     
     func clearReservations() {

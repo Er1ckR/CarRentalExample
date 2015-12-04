@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DataStoreOperationCompleted {
 
     let DSM = DataStoreManagerMem.sharedInstance
     let DSMDB = DataStoreManagerDB.sharedInstance
@@ -92,13 +92,10 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
         
         activeCustomer!.license = self.customerLicenseTextView!.text!
         
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { // 1
-            let imageData = UIImagePNGRepresentation(image)
-            self.activeCustomer!.image = imageData
-            self.DSMDB.saveContext()
-        }
+        let imageData = UIImagePNGRepresentation(image)
+        self.activeCustomer!.image = imageData
+        self.DSMDB.saveContext(self)
         
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     /*
@@ -134,5 +131,12 @@ class AddCustomerVC: UIViewController, UITextFieldDelegate, UIImagePickerControl
         dismissViewControllerAnimated(true, completion: nil);
     }
     
+    // MARK: - DataStoreOperationCompleted
+    
+    func completed() {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     
 }
